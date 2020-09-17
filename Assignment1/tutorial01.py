@@ -89,7 +89,24 @@ def printAP(a, d, n):
 #You cant use the inbuilt python function. Write your own function
 def printHP(a, d, n): 
 	hp=[]
-			
+	if isinstance(a,int) or isinstance(a,float):
+		if isinstance(d,float) or isinstance(d,int):
+			if isinstance(n,int):
+				if n <= 0:
+					return "Enter Valid Value for 'n', can be postive  & non zero values!"
+				for i in range(0,n):
+					f = a + d*i
+					if f == 0:
+						hp.clear()
+						hp.append(0)
+						return hp
+					hp.append(round(1/(a+d*i),3))
+			else:
+				return "Enter Valid Number"	
+		else:
+			return "Enter Valid Number"			
+	else:
+		return "Enter Valid Number"			
 	return hp
 
 
