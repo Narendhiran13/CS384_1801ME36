@@ -67,7 +67,22 @@ def printGP(a, r, n):
 #You cant use the inbuilt python function. Write your own function
 def printAP(a, d, n): 
 	ap=[] 
-	
+	if isinstance(a,int) or isinstance(a,float):
+		if isinstance(d,int) or isinstance(d,float):
+			if isinstance(n,int):
+				if n <= 0:
+					return "Enter Valid Value for 'n', postive  & non zero values!"
+				for i in range(n):
+					Var = a + i* d
+					ap.append(Var)
+
+			else:
+				return "Enter Valid Numbesr"
+		else:
+			return "Enter Valid Number"			
+	else:
+		return "Enter Valid Numbesr"			
+
 	return ap
 
 # Python 3 program to print HP.   Harmonic Progression
