@@ -20,7 +20,7 @@ student_answers.append(test_case_4)
 
 a = 2 # starting number 
 r = 3 # Common ratio 
-n = 5 # N th term to be find 
+n = 'c' # N th term to be find 
 
 gp = A1.printGP(a, r, n) 
 gp = list(gp) 

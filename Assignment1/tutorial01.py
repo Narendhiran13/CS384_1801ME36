@@ -24,27 +24,42 @@ def divide(num1, num2):
 # You cant use the inbuilt python function x ** y . Write your own function
 def power(num1, num2): #num1 ^ num2
 	if isinstance(num1,int) or isinstance(num1,float):
-		if isinstance(num2,float) or isinstance(num2,int):
+		if isinstance(num2,int) or isinstance(num2,float):
 			power = 1 
 			for i in range(num2):
 
 				if num2 == 0: 
-					return 1 
+					return 1
 	
 				power = power * num1
 	
 		else:
 			return "Enter Valid Number"			
 	else:
-		return "Enter Valid Number"			
+		return "Enter Valid Numbesr"			
 	
 	#DivisionLogic 
 	return power
 	
 # Python 3 program to print GP.  geometric Progression
 #You cant use the inbuilt python function. Write your own function
-def printGP(a, r, n): 
-	gp=[] 
+def printGP(a, r, n):
+	gp=[]
+	if isinstance(a,int) or isinstance(a,float):
+		if isinstance(r,int) or isinstance(r,float):
+			if isinstance(n,int):
+				if n == 0: # r cannot be zero, but n can be zero
+					for i in range(5): gp.append(a)
+					
+				for i in range(n):
+					Var = a * power(r,i)
+					gp.append(Var)
+			else:
+				return "Enter Valid Numbesr"
+		else:
+			return "Enter Valid Number"			
+	else:
+		return "Enter Valid Numbesr"			
 
 	return gp 
 
