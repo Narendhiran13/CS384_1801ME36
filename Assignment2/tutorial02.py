@@ -214,15 +214,22 @@ def pcc(first_list, second_list):
     
     mean_valueX = mean(first_list)
     mean_valueY = mean(second_list)
-    nse_value1 = 0
+    pcc_value1 = 0
     for i in range(length(first_list)):
-        nse_value1 +=( (first_list[i] - second_list[i]) * (first_list[i] - second_list[i]) )
-    nse_value2 = 0
-    for i in range(length(first_list)):
-        nse_value2 +=( (first_list[i] - mean_value) * (first_list[i] - mean_value) )
+        pcc_value1 +=( (first_list[i] - mean_valueX) * (second_list[i]-mean_valueY) )
     
-    nse_value = 1-(nse_value1/nse_value2)
-    nse_value = roundUP(nse_value)
+    pcc_value2 = 0
+    for i in range(length(first_list)):
+        pcc_value2 +=( (first_list[i] - mean_valueX) * (first_list[i] - mean_valueX) )
+    pcc_value2 = math.sqrt(pcc_value2)    
+
+    pcc_value3 = 0
+    for i in range(length(first_list)):
+        pcc_value3 +=( (second_list[i]-mean_valueY) * (second_list[i]-mean_valueY) )
+    pcc_value3 = math.sqrt(pcc_value3)
+    
+    pcc_value = pcc_value1/(pcc_value2*pcc_value3)
+    pcc_value = roundUP(pcc_value)
     
     return pcc_value
 
