@@ -133,15 +133,14 @@ def rmse(first_list, second_list):
     if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
         return 0
     
-     
     summ = 0
     n = length(first_list)
-    mean_value1 = mean(first_list)
-    for i in first_list:
-        summ+= (i-mean_value1)
-    summ /= n 
     
-    variance_value = roundUP(variance_value)
+    for i in range(length(first_list)):
+        summ+= ( (first_list[i] - second_list[i]) * (first_list[i] - second_list[i]) )
+    summ /= n
+    rmse_value = math.sqrt(summ)
+    rmse_value = roundUP(rmse_value)
     
     return rmse_value
 

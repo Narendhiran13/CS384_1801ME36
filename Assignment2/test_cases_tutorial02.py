@@ -29,7 +29,7 @@ student_answers.append(test_case_6)
 
 test_case_7 = A2.rmse(x, y)
 student_answers.append(test_case_7)
-
+"""
 test_case_8 = A2.mse(x, y)
 student_answers.append(test_case_8)
 
@@ -54,7 +54,7 @@ student_answers.append(test_case_11)
 
 test_case_12 = A2.rmse(p, r)  # Invalid since list  r contains non-numeric data-type e.g., string/character #Return 0
 student_answers.append(test_case_12)
-
+"""
 print(actual_answers)
 print(student_answers)
 
