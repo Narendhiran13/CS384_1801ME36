@@ -1,5 +1,18 @@
-
 # All decimal 3 places
+
+#Function to sort out in Ascending Order
+def Sorting(first_list):
+    unsorted_list = first_list
+    sorted_list = []
+    while unsorted_list:
+        minimum = unsorted_list[0]
+        for item in unsorted_list:
+            if item < minimum:
+                minimum = item
+        sorted_list.append(minimum)
+        unsorted_list.remove(minimum)
+
+    return sorted_list
 
 #Functiont to check the Values are the float or int values
 def CHECKINT(first_list):
@@ -28,11 +41,12 @@ def length(first_list):
 #Function which Round UP the Values to 3 digit decimals
 def roundUP(value):
     value *= 10000
+    
     if value % 10 >= 5:
         value /= 10
         value += 1
     else:
-        value /=10
+        value /= 10
         
     value = int(value)
     value /= 1000
@@ -49,7 +63,6 @@ def mean(first_list):
     n = length(first_list)
 
     mean_value = summ / n
-    print(mean_value)
     
     mean_value = roundUP(mean_value)
     return mean_value
@@ -60,6 +73,14 @@ def median(first_list):
     # median Logic
     if CHECKINT(first_list) is True:
         return 0
+    
+    first_list = Sorting(first_list)
+    if length(first_list) % 2 == 1:
+        median_value = first_list[int(length(first_list) / 2)]
+    else:
+        median_value = 0.5 * (first_list[int(length(first_list) / 2) - 1] + first_list[int(length(first_list) / 2)])
+    
+    median_value = roundUP(median_value)
     
     return median_value
 
@@ -94,7 +115,7 @@ def rmse(first_list, second_list):
 
 
 # Function to compute mse. You cant use Python functions
-def mse(first_list, second_list) 
+def mse(first_list, second_list):
     # mse Logic
     EqualNoString(first_list,second_list)
     if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
@@ -162,7 +183,7 @@ def kurtosis(first_list):
     # Kurtosis Logic
     if CHECKINT(first_list) is True:
         return 0
-    
+    x
     return kurtosis_value
 
 
@@ -177,5 +198,5 @@ def summation(first_list):
         
         summation_value += i
        
-
+    roundUP(summation_value)
     return summation_value
