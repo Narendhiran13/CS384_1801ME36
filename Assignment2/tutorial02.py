@@ -153,12 +153,13 @@ def mse(first_list, second_list):
         return 0
     
     mse_value = 0
-    for i in range(first_list):
+    for i in range(length(first_list)):
         mse_value +=( (first_list[i] - second_list[i]) * (first_list[i] - second_list[i]) )
         
     n = length(first_list)
     mse_value /= n
-        
+    
+    mse_value = roundUP(mse_value)
     return mse_value
 
 
