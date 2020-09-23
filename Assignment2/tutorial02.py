@@ -114,6 +114,15 @@ def variance(first_list):
     if CHECKINT(first_list) is True:
         return 0
     
+    summ = 0
+    n = length(first_list)
+    mean_value1 = mean(first_list)
+    for i in first_list:
+        summ+= ( (i-mean_value1) * (i-mean_value1) )
+    variance_value = summ/ n 
+    
+    variance_value = roundUP(variance_value)
+    
     return variance_value
 
 
@@ -124,6 +133,15 @@ def rmse(first_list, second_list):
     if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
         return 0
     
+     
+    summ = 0
+    n = length(first_list)
+    mean_value1 = mean(first_list)
+    for i in first_list:
+        summ+= (i-mean_value1)
+    summ /= n 
+    
+    variance_value = roundUP(variance_value)
     
     return rmse_value
 
@@ -180,6 +198,17 @@ def skewness(first_list):
     # Skewness Logic
     if CHECKINT(first_list) is True:
         return 0
+    
+    summ = 0
+    n = length(first_list)
+    mean_value1 = mean(first_list)
+    standard_deviation_value = standard_deviation(first_list)
+    
+    for i in first_list:
+        summ+= ( ((i-mean_value1)/standard_deviation_value) * ((i-mean_value1)/standard_deviation_value) * ((i-mean_value1)/standard_deviation_value) )
+    skewness_value = summ/ n 
+    
+    skewness_value = roundUP(variance_value)
     
     return skewness_value
 
