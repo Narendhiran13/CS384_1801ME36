@@ -169,6 +169,17 @@ def mae(first_list, second_list):
     EqualNoString(first_list, second_list)
     if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
         return 0
+      
+    mae_value = 0
+    for i in range(length(first_list)):
+        if (first_list[i] - second_list[i]) >= 0:
+            mae_value +=(first_list[i] - second_list[i])
+        else:
+            mae_value -=(first_list[i] - second_list[i])
+    n = length(first_list)
+    mae_value /= n
+    
+    mae_value = roundUP(mae_value)
     
     return mae_value
 
