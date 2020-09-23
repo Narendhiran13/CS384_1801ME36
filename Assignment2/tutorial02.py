@@ -202,10 +202,10 @@ def skewness(first_list):
     summ = 0
     n = length(first_list)
     mean_value1 = mean(first_list)
-    standard_deviation_value = standard_deviation(first_list)
+    standard_deviation_value1 = standard_deviation(first_list)
     
     for i in first_list:
-        summ+= ( ((i-mean_value1)/standard_deviation_value) * ((i-mean_value1)/standard_deviation_value) * ((i-mean_value1)/standard_deviation_value) )
+        summ+= ( ((i-mean_value1)/standard_deviation_value1) * ((i-mean_value1)/standard_deviation_value1) * ((i-mean_value1)/standard_deviation_value1) )
     skewness_value = summ/ n 
     
     skewness_value = roundUP(skewness_value)
@@ -226,7 +226,18 @@ def kurtosis(first_list):
     # Kurtosis Logic
     if CHECKINT(first_list) is True:
         return 0
-    x
+    
+    summ = 0
+    n = length(first_list)
+    mean_value1 = mean(first_list)
+    standard_deviation_value1 = standard_deviation(first_list)
+    
+    for i in first_list:
+        summ+= ( ((i-mean_value1)/standard_deviation_value1) * ((i-mean_value1)/standard_deviation_value1) * ((i-mean_value1)/standard_deviation_value1) * ((i-mean_value1)/standard_deviation_value1) )
+    kurtosis_value = summ/ n 
+    
+    kurtosis_value = roundUP(kurtosis_value)
+    
     return kurtosis_value
 
 
