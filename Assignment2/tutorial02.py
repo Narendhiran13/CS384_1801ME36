@@ -190,6 +190,17 @@ def nse(first_list, second_list):
     EqualNoString(first_list, second_list)
     if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
         return 0
+    mean_value = mean(first_list)
+    
+    nse_value1 = 0
+    for i in range(length(first_list)):
+        nse_value1 +=( (first_list[i] - second_list[i]) * (first_list[i] - second_list[i]) )
+    nse_value2 = 0
+    for i in range(length(first_list)):
+        nse_value2 +=( (first_list[i] - mean_value) * (first_list[i] - mean_value) )
+    
+    nse_value = 1-(nse_value1/nse_value2)
+    nse_value = roundUP(nse_value)
     
     return nse_value
 
@@ -200,6 +211,18 @@ def pcc(first_list, second_list):
     EqualNoString(first_list, second_list)
     if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
         return 0
+    
+    mean_valueX = mean(first_list)
+    mean_valueY = mean(second_list)
+    nse_value1 = 0
+    for i in range(length(first_list)):
+        nse_value1 +=( (first_list[i] - second_list[i]) * (first_list[i] - second_list[i]) )
+    nse_value2 = 0
+    for i in range(length(first_list)):
+        nse_value2 +=( (first_list[i] - mean_value) * (first_list[i] - mean_value) )
+    
+    nse_value = 1-(nse_value1/nse_value2)
+    nse_value = roundUP(nse_value)
     
     return pcc_value
 
