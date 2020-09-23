@@ -11,7 +11,7 @@ y = list(y)
 
 test_case_1 = A2.mean(x)
 student_answers.append(test_case_1)
-"""
+
 test_case_2 = A2.median(x)
 student_answers.append(test_case_2)
 
@@ -54,7 +54,7 @@ student_answers.append(test_case_11)
 
 test_case_12 = A2.rmse(p, r)  # Invalid since list  r contains non-numeric data-type e.g., string/character #Return 0
 student_answers.append(test_case_12)
-"""
+
 print(actual_answers)
 print(student_answers)
 

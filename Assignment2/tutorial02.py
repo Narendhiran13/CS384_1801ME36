@@ -1,5 +1,17 @@
-import numpy
+
 # All decimal 3 places
+
+#Functiont to check the Values are the float or int values
+def CHECKINT(first_list):
+    
+    for i in first_list:
+        if isinstance(i, int) or isinstance(i, float):
+            i = i
+        else:
+            print("One of the value is InValid Number")
+            return True
+        
+    return False
 
 #Function checks the same no of string elements
 def EqualNoString(first_list, second_list):
@@ -30,7 +42,9 @@ def roundUP(value):
 # Function to compute mean
 def mean(first_list):
     # mean Logic
-
+    if CHECKINT(first_list) is True:
+        return 0
+    
     summ = summation(first_list)
     n = length(first_list)
 
@@ -44,6 +58,8 @@ def mean(first_list):
 # Function to compute median. You cant use Python functions
 def median(first_list):
     # median Logic
+    if CHECKINT(first_list) is True:
+        return 0
     
     return median_value
 
@@ -51,12 +67,18 @@ def median(first_list):
 # Function to compute Standard deviation. You cant use Python functions
 def standard_deviation(first_list):
     # Standard deviation Logic
+    if CHECKINT(first_list) is True:
+        return 0
+    
     return standard_deviation_value
 
 
 # Function to compute variance. You cant use Python functions
 def variance(first_list):
     # variance Logic
+    if CHECKINT(first_list) is True:
+        return 0
+    
     return variance_value
 
 
@@ -64,14 +86,20 @@ def variance(first_list):
 def rmse(first_list, second_list):
     # RMSE Logic
     EqualNoString(first_list, second_list)
+    if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
+        return 0
+    
     
     return rmse_value
 
 
 # Function to compute mse. You cant use Python functions
-def mse(first_list, second_list):
+def mse(first_list, second_list) 
     # mse Logic
     EqualNoString(first_list,second_list)
+    if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
+        return 0
+    
     mse_value = 0
     for i in range(first_list):
         mse_value +=( (first_list[i] - second_list[i]) * (first_list[i] - second_list[i]) )
@@ -86,6 +114,8 @@ def mse(first_list, second_list):
 def mae(first_list, second_list):
     # mae Logic
     EqualNoString(first_list, second_list)
+    if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
+        return 0
     
     return mae_value
 
@@ -94,6 +124,8 @@ def mae(first_list, second_list):
 def nse(first_list, second_list):
     # nse Logic
     EqualNoString(first_list, second_list)
+    if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
+        return 0
     
     return nse_value
 
@@ -102,6 +134,8 @@ def nse(first_list, second_list):
 def pcc(first_list, second_list):
     # nse Logic
     EqualNoString(first_list, second_list)
+    if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
+        return 0
     
     return pcc_value
 
@@ -109,31 +143,39 @@ def pcc(first_list, second_list):
 # Function to compute Skewness. You cant use Python functions
 def skewness(first_list):
     # Skewness Logic
+    if CHECKINT(first_list) is True:
+        return 0
+    
     return skewness_value
 
 
 def sorting(first_list):
     # Sorting Logic
+    if CHECKINT(first_list) is True:
+        return 0
+    
     return sorted_list
 
 
 # Function to compute Kurtosis. You cant use Python functions
 def kurtosis(first_list):
     # Kurtosis Logic
+    if CHECKINT(first_list) is True:
+        return 0
+    
     return kurtosis_value
 
 
 # Function to compute sum. You cant use Python functions
 def summation(first_list):
     # sum Logic
-
+    if CHECKINT(first_list) is True:
+        return 0
+    
     summation_value = 0
     for i in first_list:
-
-        if isinstance(i, int) or isinstance(i, numpy.float64):
-            summation_value += i
-        else:
-            print("One of the value is InValid Number")
-            return 0
+        
+        summation_value += i
+       
 
     return summation_value
