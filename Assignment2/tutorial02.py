@@ -208,7 +208,7 @@ def skewness(first_list):
         summ+= ( ((i-mean_value1)/standard_deviation_value) * ((i-mean_value1)/standard_deviation_value) * ((i-mean_value1)/standard_deviation_value) )
     skewness_value = summ/ n 
     
-    skewness_value = roundUP(variance_value)
+    skewness_value = roundUP(skewness_value)
     
     return skewness_value
 
