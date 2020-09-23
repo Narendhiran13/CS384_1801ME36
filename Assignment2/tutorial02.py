@@ -1,3 +1,4 @@
+import math
 # All decimal 3 places
 
 #Function to sort out in Ascending Order
@@ -16,6 +17,9 @@ def Sorting(first_list):
 
 #Functiont to check the Values are the float or int values
 def CHECKINT(first_list):
+    if length(first_list) == 0:
+        print("ERROR: Please Enter some values in the String")
+        return True
     
     for i in first_list:
         if isinstance(i, int) or isinstance(i, float):
@@ -69,8 +73,9 @@ def mean(first_list):
 
 
 # Function to compute median. You cant use Python functions
-def median(first_list):
+def median(first_list1):
     # median Logic
+    first_list = first_list1[:]
     if CHECKINT(first_list) is True:
         return 0
     
@@ -90,6 +95,15 @@ def standard_deviation(first_list):
     # Standard deviation Logic
     if CHECKINT(first_list) is True:
         return 0
+    
+    summ = 0
+    n = length(first_list)
+    mean_value1 = mean(first_list)
+    for i in first_list:
+        summ+= ( (i-mean_value1) * (i-mean_value1) )
+    summ /= n
+    standard_deviation_value = math.sqrt(summ)
+    standard_deviation_value = roundUP(standard_deviation_value)
     
     return standard_deviation_value
 
