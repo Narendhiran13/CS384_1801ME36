@@ -1,19 +1,6 @@
 import math
 # All decimal 3 places
 
-#Function to sort out in Ascending Order
-def Sorting(first_list):
-    unsorted_list = first_list
-    sorted_list = []
-    while unsorted_list:
-        minimum = unsorted_list[0]
-        for item in unsorted_list:
-            if item < minimum:
-                minimum = item
-        sorted_list.append(minimum)
-        unsorted_list.remove(minimum)
-
-    return sorted_list
 
 #Functiont to check the Values are the float or int values
 def CHECKINT(first_list):
@@ -34,7 +21,9 @@ def CHECKINT(first_list):
 def EqualNoString(first_list, second_list):
     if(length(first_list) != length (second_list)):
         print("\t\tERROR: Unequal no of string elements")
-        
+        return True
+    return False
+    
 # Function to Find the length of the String
 def length(first_list):
     count = 0
@@ -129,8 +118,7 @@ def variance(first_list):
 # Function to compute RMSE. You cant use Python functions
 def rmse(first_list, second_list):
     # RMSE Logic
-    EqualNoString(first_list, second_list)
-    if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
+    if CHECKINT(first_list) is True or CHECKINT(second_list) is True or EqualNoString(first_list, second_list) is True:
         return 0
     
     summ = 0
@@ -148,8 +136,7 @@ def rmse(first_list, second_list):
 # Function to compute mse. You cant use Python functions
 def mse(first_list, second_list):
     # mse Logic
-    EqualNoString(first_list,second_list)
-    if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
+    if CHECKINT(first_list) is True or CHECKINT(second_list) is True or EqualNoString(first_list, second_list) is True:
         return 0
     
     mse_value = 0
@@ -166,10 +153,9 @@ def mse(first_list, second_list):
 # Function to compute mae. You cant use Python functions
 def mae(first_list, second_list):
     # mae Logic
-    EqualNoString(first_list, second_list)
-    if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
+    if CHECKINT(first_list) is True or CHECKINT(second_list) is True or EqualNoString(first_list, second_list) is True:
         return 0
-      
+     
     mae_value = 0
     for i in range(length(first_list)):
         if (first_list[i] - second_list[i]) >= 0:
@@ -187,8 +173,7 @@ def mae(first_list, second_list):
 # Function to compute NSE. You cant use Python functions
 def nse(first_list, second_list):
     # nse Logic
-    EqualNoString(first_list, second_list)
-    if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
+    if CHECKINT(first_list) is True or CHECKINT(second_list) is True or EqualNoString(first_list, second_list) is True:
         return 0
     mean_value = mean(first_list)
     
@@ -208,8 +193,8 @@ def nse(first_list, second_list):
 # Function to compute Pearson correlation coefficient. You cant use Python functions
 def pcc(first_list, second_list):
     # nse Logic
-    EqualNoString(first_list, second_list)
-    if CHECKINT(first_list) is True or CHECKINT(second_list) is True:
+    
+    if CHECKINT(first_list) is True or CHECKINT(second_list) is True or EqualNoString(first_list, second_list) is True:
         return 0
     
     mean_valueX = mean(first_list)
@@ -253,14 +238,19 @@ def skewness(first_list):
     
     return skewness_value
 
+#Function to sort out in Ascending Order
+def Sorting(first_list):
+    unsorted_list = first_list
+    sorted_list = []
+    while unsorted_list:
+        minimum = unsorted_list[0]
+        for item in unsorted_list:
+            if item < minimum:
+                minimum = item
+        sorted_list.append(minimum)
+        unsorted_list.remove(minimum)
 
-def sorting(first_list):
-    # Sorting Logic
-    if CHECKINT(first_list) is True:
-        return 0
-    
     return sorted_list
-
 
 # Function to compute Kurtosis. You cant use Python functions
 def kurtosis(first_list):
