@@ -261,4 +261,47 @@ def blood_group():
 # Create the new file here and also sort it in this function only.
 def new_file_sort():
     # Read csv and process
+
+    Heading_Titles = ["id", "first_name", "last_name", "country",
+                      "email", "gender", "dob", "blood_group", "state"]
+
+    Student_split_csv_list = []
+    Created_directory = "./analytics"
+    try:  # Create a Directory if necessary
+        os.makedirs(Created_directory)
+    except:
+        pass
+
+    with open("./studentinfo_cs384.csv", "r") as Student_csv:
+        read_dire = csv.DictReader(Student_csv)
+
+        next(read_dire, None)  # skip the heading line
+
+        Student_split_csv = open(
+            "{}/studentinfo_cs384_names_split.csv".format(Created_directory), "w")
+        Student_split_csv_writer = csv.DictWriter(  # Writing in the File about the Student
+            Student_split_csv, Heading_Titles)
+
+        Student_split_csv_writer.writeheader()
+
+        for Single_stud_data in read_dire:
+            full_name = Single_stud_data.get("full_name").split(" ")
+            Single_stud_data["first_name"] = full_name[0]
+            Single_stud_data["last_name"] = " ".join(full_name[1:])
+            del Single_stud_data["full_name"]
+            Student_split_csv_list.append(Single_stud_data)
+            Student_split_csv_writer.writerow(Single_stud_data)
+
+    def First_Name(stu):
+        return stu.get("first_name")
+    Student_split_csv_list.sort(key=First_Name)
+
+    with open("{}/studentinfo_cs384_names_split_sorted_first_name.csv".format(Created_directory), "w") as student_split_file:  # open the New File
+        # Writing in the File about the Student
+        Student_split_sorted_writer = csv.DictWriter(
+            student_split_file, Heading_Titles)
+        Student_split_sorted_writer.writeheader()
+        for val in Student_split_csv_list:
+            Student_split_sorted_writer.writerow(val)
+
     pass
