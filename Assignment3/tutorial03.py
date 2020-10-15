@@ -61,6 +61,30 @@ def course():
 
 def country():
     # Read csv and process
+    Created_directory = "./analytics/country"
+    try:  # Create a Directory if necessary
+        os.makedirs(Created_directory)
+    except:
+        pass
+
+    Heading_Title = ["id", "full_name", "country", "email",
+                     "gender", "dob", "blood_group", "state"]
+
+    Student_csv = open("studentinfo_cs384.csv", "r")  # open the Student File
+    read_dire = csv.DictReader(Student_csv, Heading_Title)
+
+    for Single_stud_data in read_dire:
+        # india
+        country_var = Single_stud_data.get("country").lower()
+
+        File_name = "{}.csv".format(country_var)
+
+        # open the New File according to the country
+        f = open("{}/{}".format(Created_directory, File_name), "a")
+        # Writing in the File about the Student
+        read_write = csv.DictWriter(f, Heading_Title)
+        read_write.writerow(Single_stud_data)
+
     pass
 
 
