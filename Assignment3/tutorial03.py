@@ -90,6 +90,38 @@ def country():
 
 def email_domain_extract():
     # Read csv and process
+
+    Created_directory = "./analytics/email_domain"
+    try:  # Create a Directory if necessary
+        os.makedirs(Created_directory)
+    except:
+        pass
+
+    # Remove
+    with open("./studentinfo_cs384.csv", "r") as Student_csv:
+
+        read_dire = csv.DictReader(Student_csv)
+        Heading_Title = read_dire.fieldnames
+        next(read_dire, None)  # skip the heading line
+
+        for Single_stud_data in read_dire:
+            email_var = Single_stud_data.get("email")
+            domain = email_var.split("@")[1].split(".")[0]
+            File_name = "{}/{}.csv".format(Created_directory, domain)
+            with open(File_name, "w") as f:
+                # Writing in the File about the Student
+                csv.DictWriter(f, Heading_Title).writeheader()
+    with open("./studentinfo_cs384.csv", "r") as Student_csv:
+        read_dire = csv.DictReader(Student_csv)
+        Heading_Titles = read_dire.fieldnames
+        next(read_dire, None)  # skip header
+        for Single_stud_data in read_dire:
+            email_var = Single_stud_data.get("email")
+            domain = email_var.split("@")[1].split(".")[0]
+            File_name = "{}/{}.csv".format(Created_directory, domain)
+            with open(File_name, "a") as f:
+                csv.DictWriter(f, Heading_Titles).writerow(
+                    Single_stud_data)  # Writing in the File about the Student
     pass
 
 
