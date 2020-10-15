@@ -231,6 +231,30 @@ def state():
 
 def blood_group():
     # Read csv and process
+    Created_directory = "./analytics/blood_group"
+    try:  # Create a Directory if necessary
+        os.makedirs(Created_directory)
+    except:
+        pass
+
+    Heading_Titles = ["id", "full_name", "country", "email",
+                      "gender", "dob", "blood_group", "state"]
+
+    Student_csv = open("studentinfo_cs384.csv", "r")
+    read_dire = csv.DictReader(Student_csv, Heading_Titles)
+
+    for Single_stud_data in read_dire:
+        # a+, a-...,
+        blood_group_var = Single_stud_data.get("blood_group").lower()
+
+        File_name = "{}.csv".format(blood_group_var)
+
+        # open the New File according to the blood group
+        f = open("{}/{}".format(Created_directory, File_name), "a")
+        # Writing in the File about the Student
+        read_write = csv.DictWriter(f, Heading_Titles)
+        read_write.writerow(Single_stud_data)
+
     pass
 
 
