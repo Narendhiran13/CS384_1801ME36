@@ -71,6 +71,7 @@ def task1(number_of_groups):
         writer = csv.writer(file, dialect='excel')
         writer.writerow(["BRANCH_CODE", "STRENGTH"])
         writer.writerows(data)
+# task2
 
 
 def task2():
