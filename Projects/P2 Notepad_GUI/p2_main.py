@@ -20,6 +20,7 @@ txt_Ar = Text(Base, undo=True, wrap=None,
               height=Base.winfo_height(), width=Base.winfo_width())
 txt_Ar.grid(row=0, sticky=N + E + S + W)
 
+
 Base.grid_rowconfigure(0, weight=1)
 Base.grid_columnconfigure(0, weight=1)
 
